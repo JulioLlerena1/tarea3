@@ -1,7 +1,7 @@
 package observer;
 
 import factoryMethod.Cabina;
-import factoryMethod.CabinaFactoryManager;
+import factoryMethod.CabinaFactory;
 import java.util.*;
 
 public class GestorReservas {
@@ -25,7 +25,7 @@ public class GestorReservas {
     }
 
     public void gestionarMenuReservas(
-            CabinaFactoryManager factoryManager,
+            CabinaFactory factoryManager,
             GestorEstadoCabina gestorEstado,
             Scanner scanner) {
         System.out.println("\nOpciones de Gestión de Reservas:");
@@ -47,7 +47,7 @@ public class GestorReservas {
         }
     }
     private void realizarReserva
-            (CabinaFactoryManager factoryManager,
+            (CabinaFactory factoryManager,
             GestorEstadoCabina gestorEstado,
             Scanner scanner) {
 

@@ -16,7 +16,7 @@ public class Main {
 
         servicioTecnico.setNextChain(gerencia);
 
-        CabinaFactoryManager factoryManager = new CabinaFactoryManager();
+        CabinaFactory factoryManager = new CabinaFactory();
         factoryManager.registerFactory("Interior", new CabinaInteriorFactory());
         factoryManager.registerFactory("Familiar", new CabinaFamiliarFactory());
         factoryManager.registerFactory("Balcón", new CabinaBalconFactory());
