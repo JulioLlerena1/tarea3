@@ -14,10 +14,6 @@ class Crucero{
         this.cabinas = new ArrayList<>();
     }
 
-    public void agregarCabina(Cabina cabina) {
-        cabinas.add(cabina);
-    }
-
     public void listarCabinas() {
         for (Cabina cabina : cabinas) {
             System.out.println(cabina.obtenerDescripcion());
