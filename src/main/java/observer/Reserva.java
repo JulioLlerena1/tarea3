@@ -5,26 +5,16 @@ import java.util.List;
 public class Reserva {
     private static int idCounter = 1;
     private int id;
-    private String nombreCliente;
-    private int cedulaCliente;
+    private Cliente cliente;
     private List<Observer> cabinasReservadasObserver = new ArrayList<>();
 
-    public Reserva(String nombreCliente, int cedulaCliente) {
+    public Reserva(Cliente cliente) {
+        this.cliente = cliente;
         this.id = idCounter++;
-        this.nombreCliente = nombreCliente;
-        this.cedulaCliente = cedulaCliente;
     }
 
     public int getId() {
         return id;
-    }
-
-    public String getNombreCliente() {
-        return nombreCliente;
-    }
-
-    public int getCedulaCliente() {
-        return cedulaCliente;
     }
 
     public void addObserver(Observer observer) {
