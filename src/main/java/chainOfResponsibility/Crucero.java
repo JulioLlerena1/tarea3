@@ -1,16 +1,16 @@
 package chainOfResponsibility;
-
-import Utils.Entidad;
 import factoryMethod.Cabina;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Crucero extends Entidad {
+class Crucero{
+
+    private int id;
     private List<Cabina> cabinas;
 
-    public Crucero(int id, String nombre) {
-        super(id, nombre);
+    public Crucero(int id) {
+        this.id = id;
         this.cabinas = new ArrayList<>();
     }
 
@@ -22,5 +22,23 @@ class Crucero extends Entidad {
         for (Cabina cabina : cabinas) {
             System.out.println(cabina.obtenerDescripcion());
         }
+    }
+
+     // Getters
+     public int getId() {
+        return id;
+    }
+
+    public List<Cabina> getCabinas() {
+        return cabinas;
+    }
+
+    // Setters
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCabinas(List<Cabina> cabinas) {
+        this.cabinas = cabinas;
     }
 }

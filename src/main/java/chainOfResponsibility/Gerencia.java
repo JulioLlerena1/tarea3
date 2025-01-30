@@ -1,12 +1,14 @@
 package chainOfResponsibility;
-import Utils.Entidad;
 import java.util.Scanner;
-public class Gerencia extends Entidad implements SolucionReporteChain {
+public class Gerencia implements SolucionReporteChain {
+    private int ruc;
+    private String nombre;
     private String telefono;
     private SolucionReporteChain solucion;
 
-    public Gerencia(int cedula, String nombre, String telefono) {
-        super(cedula, nombre);
+    public Gerencia(int ruc, String nombre, String telefono) {
+        this.ruc = ruc;
+        this.nombre = nombre;
         this.telefono = telefono;
     }
 
@@ -36,6 +38,34 @@ public class Gerencia extends Entidad implements SolucionReporteChain {
         }
         
     }
+
+
+    // Getters
+    public int getRuc() {
+        return ruc;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    // Setters
+    public void setRuc(int ruc) {
+        this.ruc = ruc;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
 
     @Override
     public void setNextChain(SolucionReporteChain nextChain) {

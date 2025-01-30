@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
         GestorEstadoCabina gestorEstado = new GestorEstadoCabina();
         GestorReservas gestorReservas = new GestorReservas();
-        ServicioTecnico servicioTecnico = new ServicioTecnico(5678, "Servicio Técnico");
-        Gerencia gerencia = new Gerencia(4321, "Gerencia del Crucero", "123-456-789");
+        ServicioTecnico servicioTecnico = new ServicioTecnico(123456, "Agente tecnico1");
+        Gerencia gerencia = new Gerencia(432145464, "Gerencia del Crucero", "123-456-789");
         Scanner scanner = new Scanner(System.in);
 
         servicioTecnico.setNextChain(gerencia);

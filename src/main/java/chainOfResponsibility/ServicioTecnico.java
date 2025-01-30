@@ -1,11 +1,15 @@
 package chainOfResponsibility;
-import Utils.Entidad;
 
-public class ServicioTecnico extends Entidad implements SolucionReporteChain {
+
+public class ServicioTecnico implements SolucionReporteChain {
+    private int id;
+    private String nombre;
     private SolucionReporteChain solucion;
 
-    public ServicioTecnico(int cedula, String nombre) {
-        super(cedula, nombre);
+
+    public ServicioTecnico(int id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
     }
 
     @Override
