@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         GestorEstadoCabina gestorEstado = new GestorEstadoCabina();
         GestorReservas gestorReservas = new GestorReservas();
-        ServicioTecnico servicioTecnico = new ServicioTecnico(123456, "Agente tecnico1");
+        ServicioTecnico servicioTecnico = new ServicioTecnico(123456, "Agente tecnico1","223-456-789");
         Gerencia gerencia = new Gerencia(432145464, "Gerencia del Crucero", "123-456-789");
         Scanner scanner = new Scanner(System.in);
 

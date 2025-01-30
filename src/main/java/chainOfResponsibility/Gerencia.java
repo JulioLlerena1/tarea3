@@ -1,15 +1,13 @@
 package chainOfResponsibility;
 import java.util.Scanner;
-public class Gerencia implements SolucionReporteChain {
-    private int ruc;
-    private String nombre;
-    private String telefono;
+import Utils.Personal;
+
+public class Gerencia extends Personal implements SolucionReporteChain {
+
     private SolucionReporteChain solucion;
 
     public Gerencia(int ruc, String nombre, String telefono) {
-        this.ruc = ruc;
-        this.nombre = nombre;
-        this.telefono = telefono;
+        super(ruc, nombre, telefono);
     }
 
     @Override
@@ -37,33 +35,6 @@ public class Gerencia implements SolucionReporteChain {
             System.out.println("No hay más niveles para escalar el problema.");
         }
         
-    }
-
-
-    // Getters
-    public int getRuc() {
-        return ruc;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    // Setters
-    public void setRuc(int ruc) {
-        this.ruc = ruc;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
 
 
