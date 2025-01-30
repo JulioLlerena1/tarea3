@@ -34,7 +34,7 @@ public class Main {
             int opcion = Integer.parseInt(scanner.nextLine());
             switch (opcion) {
                 case 1:
-                    gestorReservas.gestionarReservas(factoryManager, gestorEstado, scanner);
+                    gestorReservas.gestionarMenuReservas(factoryManager, gestorEstado, scanner);
                     break;
                 case 2:
                     System.out.println("Describa el incidente: ");

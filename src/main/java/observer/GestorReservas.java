@@ -16,7 +16,7 @@ public class GestorReservas {
         disponibilidad.put("Suite", new Integer[]{2, 1, 1});
     }
 
-    public void mostrarDisponibilidad() {
+    public void imprimirDisponibilidadCabinas() {
         System.out.println("\nDisponibilidad de cabinas:");
         disponibilidad.forEach((tipo, estados) -> {
             System.out.printf("%s - Disponible: %d, Ocupada: %d, Mantenimiento: %d\n",
@@ -24,7 +24,7 @@ public class GestorReservas {
         });
     }
 
-    public void gestionarReservas(
+    public void gestionarMenuReservas(
             CabinaFactoryManager factoryManager,
             GestorEstadoCabina gestorEstado,
             Scanner scanner) {
@@ -46,11 +46,12 @@ public class GestorReservas {
                 break;
         }
     }
-    private void realizarReserva(
-            CabinaFactoryManager factoryManager,
+    private void realizarReserva
+            (CabinaFactoryManager factoryManager,
             GestorEstadoCabina gestorEstado,
             Scanner scanner) {
-        mostrarDisponibilidad();
+
+        imprimirDisponibilidadCabinas();
 
         System.out.print("Ingrese el tipo de cabina que desea reservar: ");
         String tipo = scanner.nextLine();
