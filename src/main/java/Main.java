@@ -1,4 +1,4 @@
-import Utils.InputHelper;
+
 import chainOfResponsibility.Gerencia;
 import chainOfResponsibility.ServicioTecnico;
 import factoryMethod.*;
@@ -30,13 +30,15 @@ public class Main {
             System.out.println("2. Reportar Incidentes");
             System.out.println("3. Salir");
 
-            int opcion = InputHelper.readInt("Seleccione una opción: ");  //scanner
+            System.out.println("Seleccione una opción: ");
+            int opcion = Integer.parseInt(scanner.nextLine());
             switch (opcion) {
                 case 1:
                     gestorReservas.gestionarReservas(factoryManager, gestorEstado, scanner);
                     break;
                 case 2:
-                    String descripcion = InputHelper.readLine("Describa el incidente: ");  //scanner
+                    System.out.println("Describa el incidente: ");
+                    String descripcion = scanner.nextLine();
                     System.out.println("Incidente reportado: " + descripcion);
                     servicioTecnico.procesarReporte();
                     break;
@@ -47,6 +49,7 @@ public class Main {
                     System.out.println("Opción no válida.");
                     break;
             }
+            scanner.close();
         }
     }
 }

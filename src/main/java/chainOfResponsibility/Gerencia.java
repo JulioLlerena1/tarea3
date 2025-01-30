@@ -1,6 +1,6 @@
 package chainOfResponsibility;
 import Utils.Entidad;
-import Utils.InputHelper;
+import java.util.Scanner;
 public class Gerencia extends Entidad implements SolucionReporteChain {
     private String telefono;
     private SolucionReporteChain solucion;
@@ -13,13 +13,17 @@ public class Gerencia extends Entidad implements SolucionReporteChain {
     @Override
     public void procesarReporte() {
 
-        String input = InputHelper.readLine("¿Está satisfecho con la solución ofrecida por chainOfResponsibility.Gerencia? (S/N): "); //scanner
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("¿Está satisfecho con la solución ofrecida por chainOfResponsibility.Gerencia? (S/N): ");
+        String sol = input.nextLine(); //scanner
+        input.close();
 
         if (solucion != null) {
             solucion.procesarReporte();
             
         } else {
-            verificarSolucion(input);
+            verificarSolucion(sol);
         }
     }
 
