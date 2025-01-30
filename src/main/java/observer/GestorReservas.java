@@ -68,7 +68,7 @@ public class GestorReservas {
 
         Cabina nuevaCabina = factoryManager.crearCabina(tipo, "Reservada");
         if (nuevaCabina != null) {
-            Reserva reserva = new Reserva(new Cliente(nombre, cedula));
+            Reserva reserva = new Reserva();
             reserva.addObserver((Observer) nuevaCabina);
             reservas.add(reserva);
             gestorEstado.agregarCabina((Observer) nuevaCabina);

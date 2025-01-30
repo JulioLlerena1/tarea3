@@ -5,12 +5,11 @@ import java.util.List;
 public class Reserva {
     private static int idCounter = 1;
     private int id;
-    private Cliente cliente;
-    private List<Observer> cabinasReservadasObserver = new ArrayList<>();
+    private List<Observer> cabinasReservadasObserver;
 
-    public Reserva(Cliente cliente) {
-        this.cliente = cliente;
+    public Reserva() {
         this.id = idCounter++;
+        cabinasReservadasObserver = new ArrayList<>();
     }
 
     public int getId() {
@@ -30,4 +29,5 @@ public class Reserva {
             observer.update(estado);
         }
     }
+
 }
