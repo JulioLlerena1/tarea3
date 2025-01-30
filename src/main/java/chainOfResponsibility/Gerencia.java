@@ -13,7 +13,7 @@ public class Gerencia extends Entidad implements SolucionReporteChain {
     @Override
     public void procesarReporte() {
 
-        String input = InputHelper.readLine("¿Está satisfecho con la solución ofrecida por chainOfResponsibility.Gerencia? (S/N): ");
+        String input = InputHelper.readLine("¿Está satisfecho con la solución ofrecida por chainOfResponsibility.Gerencia? (S/N): "); //scanner
 
         if (solucion != null) {
             solucion.procesarReporte();

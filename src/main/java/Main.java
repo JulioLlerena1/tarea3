@@ -30,13 +30,13 @@ public class Main {
             System.out.println("2. Reportar Incidentes");
             System.out.println("3. Salir");
 
-            int opcion = InputHelper.readInt("Seleccione una opción: ");
+            int opcion = InputHelper.readInt("Seleccione una opción: ");  //scanner
             switch (opcion) {
                 case 1:
                     gestorReservas.gestionarReservas(factoryManager, gestorEstado, scanner);
                     break;
                 case 2:
-                    String descripcion = InputHelper.readLine("Describa el incidente: ");
+                    String descripcion = InputHelper.readLine("Describa el incidente: ");  //scanner
                     System.out.println("Incidente reportado: " + descripcion);
                     servicioTecnico.procesarReporte();
                     break;
