@@ -2,6 +2,7 @@
 import chainOfResponsibility.Gerencia;
 import chainOfResponsibility.ServicioTecnico;
 import factoryMethod.*;
+import observer.GestorDisponibilidad;
 import observer.GestorEstadoCabina;
 import observer.GestorReservas;
 import java.util.Scanner;
@@ -15,6 +16,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         servicioTecnico.setNextChain(gerencia);
+
+        GestorDisponibilidad gestor = new GestorDisponibilidad();
 
         CabinaFactory factoryManager = new CabinaFactory();
         factoryManager.registerFactory("Interior", new CabinaInteriorFactory());
@@ -34,7 +37,7 @@ public class Main {
             int opcion = Integer.parseInt(scanner.nextLine());
             switch (opcion) {
                 case 1:
-                    gestorReservas.gestionarMenuReservas(factoryManager, gestorEstado, scanner);
+                    gestorReservas.gestionarMenuReservas(factoryManager, gestorEstado, scanner,gestor);
                     break;
                 case 2:
                     System.out.println("Describa el incidente: ");

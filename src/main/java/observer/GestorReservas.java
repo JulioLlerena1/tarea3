@@ -6,19 +6,13 @@ import java.util.*;
 
 public class GestorReservas {
     private List<Reserva> reservas = new ArrayList<>();
-    private Map<String, Integer[]> disponibilidad = new HashMap<>();
+    private GestorDisponibilidad gestor;
 
-    public GestorReservas() {
-        // Simulación de disponibilidad inicial
-        disponibilidad.put("Interior", new Integer[]{5, 3, 2}); // {disponible, ocupada, mantenimiento}
-        disponibilidad.put("Familiar", new Integer[]{3, 1, 1});
-        disponibilidad.put("Balcón", new Integer[]{4, 2, 0});
-        disponibilidad.put("Suite", new Integer[]{2, 1, 1});
-    }
+    
 
     public void imprimirDisponibilidadCabinas() {
         System.out.println("\nDisponibilidad de cabinas:");
-        disponibilidad.forEach((tipo, estados) -> {
+        gestor.getDisponibilidad().forEach((tipo, estados) -> {
             System.out.printf("%s - Disponible: %d, Ocupada: %d, Mantenimiento: %d\n",
                     tipo, estados[0], estados[1], estados[2]);
         });
@@ -27,7 +21,7 @@ public class GestorReservas {
     public void gestionarMenuReservas(
             CabinaFactory factoryManager,
             GestorEstadoCabina gestorEstado,
-            Scanner scanner) {
+            Scanner scanner,GestorDisponibilidad gestor) {
         System.out.println("\nOpciones de Gestión de Reservas:");
         System.out.println("1. Añadir Reserva");
         System.out.println("2. Cancelar Reserva");
@@ -36,7 +30,7 @@ public class GestorReservas {
 
         switch (opcion) {
             case 1:
-                realizarReserva(factoryManager, gestorEstado, scanner);
+                realizarReserva(factoryManager, gestorEstado, scanner,gestor);
                 break;
             case 2:
                 cancelarReserva(scanner);
@@ -49,7 +43,7 @@ public class GestorReservas {
     private void realizarReserva
             (CabinaFactory factoryManager,
             GestorEstadoCabina gestorEstado,
-            Scanner scanner) {
+            Scanner scanner,GestorDisponibilidad gestor) {
 
         imprimirDisponibilidadCabinas();
 
@@ -60,11 +54,7 @@ public class GestorReservas {
         System.out.print("Ingrese su cédula: ");
         int cedula = Integer.parseInt(scanner.nextLine());
 
-        Integer[] estados = disponibilidad.get(tipo);
-        if (estados == null || estados[0] <= 0) {
-            System.out.println("No hay cabinas disponibles de este tipo.");
-            return;
-        }
+        Integer[] estados = gestor.getDisponibilidad().get(tipo);
 
         Cabina nuevaCabina = factoryManager.crearCabina(tipo, "Reservada");
         if (nuevaCabina != null) {
