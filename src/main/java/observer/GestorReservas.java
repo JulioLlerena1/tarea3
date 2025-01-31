@@ -40,7 +40,7 @@ public class GestorReservas {
                 break;
         }
     }
-    private void realizarReserva
+    public void realizarReserva
             (CabinaFactory factoryManager,
             GestorEstadoCabina gestorEstado,
             Scanner scanner,GestorDisponibilidad gestor) {
@@ -72,7 +72,7 @@ public class GestorReservas {
             System.out.println("No se pudo crear la reserva. Intente nuevamente.");
         }
     }
-    private void cancelarReserva(Scanner scanner) {
+    public void cancelarReserva(Scanner scanner) {
         System.out.print("Ingrese el ID de la reserva que desea cancelar: ");
         int idReserva = Integer.parseInt(scanner.nextLine());
 
