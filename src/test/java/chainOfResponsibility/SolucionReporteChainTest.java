@@ -4,10 +4,13 @@
  */
 package chainOfResponsibility;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.AfterAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,6 +21,7 @@ import org.junit.jupiter.api.Test;
  */
 public class SolucionReporteChainTest {
     private ServicioTecnico servicioTecnico;
+    private Gerencia gerencia;
     private ByteArrayOutputStream outContent;
     private ByteArrayOutputStream errContent;
     private PrintStream originalOut = System.out;
@@ -46,4 +50,13 @@ public class SolucionReporteChainTest {
         assertEquals("Tu petición será revisada. Procesando reporte..." + saltoDeLinea +
 "No hay más niveles para escalar el problema.", outContent.toString().trim());
     }
+    @Tag("Verificar que se procesa correctamente el reporte")
+    @Test
+    void reporteConSolucion(){
+        setUpStreams();
+        servicioTecnico.procesarReporte();
+
+        assertEquals("Tu petición será revisada. Procesando reporte..." + saltoDeLinea +
+                "No hay más niveles para escalar el problema.", outContent.toString().trim());
+ }
 }
