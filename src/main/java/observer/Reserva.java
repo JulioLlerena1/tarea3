@@ -1,6 +1,7 @@
 package observer;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.NullPointerException;
 
 public class Reserva {
     private static int idCounter = 1;
@@ -16,7 +17,10 @@ public class Reserva {
         return id;
     }
 
-    public void addObserver(Observer observer) {
+    public void addObserver(Observer observer) throws NullPointerException{
+        if(observer == null){
+            throw new NullPointerException();
+        }
         cabinasReservadasObserver.add(observer);
     }
 
@@ -24,7 +28,7 @@ public class Reserva {
         cabinasReservadasObserver.remove(observer);
     }
 
-    public void notifyObservers(String estado) {
+    public void notifyObservers(String estado) throws Exception{
         for (Observer observer : cabinasReservadasObserver) {
             observer.update(estado);
         }

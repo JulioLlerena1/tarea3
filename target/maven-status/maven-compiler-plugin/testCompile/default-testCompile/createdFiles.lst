@@ -1,0 +1,11 @@
+chainOfResponsibility\CruceroTest.class
+factoryMethod\CabinaBalconFactoryTest.class
+chainOfResponsibility\GerenciaTest.class
+chainOfResponsibility\ServicioTecnicoTest.class
+chainOfResponsibility\SolucionReporteChainTest.class
+factoryMethod\CabinaInteriorFactoryTest.class
+factoryMethod\SuiteFactoryTest.class
+factoryMethod\CabinaFamiliarFactoryTest.class
+observer\ReservaTest.class
+factoryMethod\CabinaTest.class
+observer\GestorEstadoCabinaTest.class
